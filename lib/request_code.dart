@@ -43,6 +43,9 @@ class RequestCode {
         ),
       );
     }
+    if(_config.enableWebViewZoom != null) {
+      await controller.enableZoom(_config.enableWebViewZoom!);
+    }
 
     final webView = WebViewWidget(controller: controller);
 

@@ -188,6 +188,9 @@ class Config {
     }
   }
 
+  /// Configure the "enableZoom" setting in the WebViewController
+  bool? enableWebViewZoom;
+
   /// Azure AD OAuth Configuration. Look at individual fields for description.
   Config({
     required this.tenant,
@@ -224,6 +227,7 @@ class Config {
     this.postLogoutRedirectUri,
     this.appBar,
     this.onPageFinished,
+    this.enableWebViewZoom
   })
       : authorizationUrl = customAuthorizationUrl ??
       (isB2C
@@ -276,6 +280,7 @@ class Config {
     String? postLogoutRedirectUri,
     PreferredSizeWidget? appBar,
     Function(String url)? onPageFinished,
+    bool? enableWebViewZoom
   }) {
     return Config(
       tenant: tenant ?? this.tenant,
@@ -315,6 +320,7 @@ class Config {
       postLogoutRedirectUri ?? this.postLogoutRedirectUri,
       appBar: appBar ?? this.appBar,
       onPageFinished: onPageFinished ?? this.onPageFinished,
+      enableWebViewZoom: enableWebViewZoom ?? this.enableWebViewZoom
     );
   }
 }
